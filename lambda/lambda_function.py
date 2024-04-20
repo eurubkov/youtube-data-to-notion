@@ -100,7 +100,7 @@ def update_notion_db_entry(page_id, comments, likes, views, title):
     requests.patch(url, headers=NOTION_HEADERS, data=json.dumps(data))
 
 
-def lambda_handler():
+def lambda_handler(event, context):
     yt_ids_to_notion_pages_map = get_youtube_id_to_notion_page_map()
     yt_details = get_video_details(list(yt_ids_to_notion_pages_map.keys()))
     for detail in yt_details:
